@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.ChapterDao">
+<!--章节添加-->
+<insert id="addChapter" parameterType="com.baizhi.entity.Chapter" >
+	insert into chapter
+	values(#{id},#{name},#{url},#{size},#{length},#{times},#{creatTime},#{albumId})
+</insert>
+	<!--章节查询所有-->
+	<select id="selectAllChapter" resultType="com.baizhi.entity.Chapter">
+		select *
+		from chapter limit #{beginNum},#{perNum}
+	</select>
+	<!--章节总的条数-->
+	<select id="count" resultType="int">
+		select count(*) from chapter
+	</select>
+</mapper>
